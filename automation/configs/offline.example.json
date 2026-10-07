@@ -1,0 +1,36 @@
+{
+  "mode": "offline",
+  "simulation": true,
+  "account_id": "sim-account-001",
+  "rule_version": "w0-v1",
+  "runtime_dir": ".runtime",
+  "database_path": ".runtime/w0.db",
+  "log_dir": ".runtime/logs",
+  "display_timezone": "Asia/Shanghai",
+  "allowed_conversation_ids": [
+    "wxid_test_peer_a"
+  ],
+  "keyword_rules": [
+    {
+      "rule_id": "kw-help",
+      "keywords": ["帮助", "help"],
+      "reply_text": "【模拟回复】已收到，稍后联系您。"
+    }
+  ],
+  "executor": "mock",
+  "mock_executor": {
+    "default_outcome": "success",
+    "target_map": {
+      "wxid_test_peer_a": "mock-target-a"
+    }
+  },
+  "backfill": {
+    "overlap_seconds": 5,
+    "page_size": 2
+  },
+  "worker": {
+    "max_retries": 3,
+    "execution_timeout_seconds": 30,
+    "lock_ttl_seconds": 120
+  }
+}

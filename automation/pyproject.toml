@@ -1,0 +1,28 @@
+[project]
+name = "wechat-automation"
+version = "0.1.0"
+description = "Offline Phase W0 automation loop for chatlog (simulation only)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+wechat-auto = "wechat_automation.cli.main:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.entry-points."pytest11"]
+gate_report = "wechat_automation.pytest_gate_report"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+# gate_report plugin loaded via setuptools entry point (see project.entry-points)

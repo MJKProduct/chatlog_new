@@ -29,3 +29,13 @@ go.work.sum
 
 chatlog.exe# Added by goreleaser init:
 dist/
+
+# Phase W0 automation runtime (local only)
+/automation/.runtime/
+/automation/.local-validation/
+/任务/
+
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
